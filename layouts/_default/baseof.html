@@ -16,12 +16,12 @@
   {{- end }}
   {{- $favicon := .Site.Params.favicon | default "favicon.ico" }}
   {{- $favtype := cond (eq (path.Ext $favicon) ".png") "image/png" "image/x-icon" }}
-  <link rel="shortcut icon" href="{{ .Site.BaseURL }}{{ $favicon }}" type="{{ $favtype }}" />
+  <link rel="shortcut icon" href="{{ $favicon | relURL }}" type="{{ $favtype }}" />
   {{ "<!--[if lte IE 8]>" | safeHTML }}
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}assets/style-compat.css" />
+  <link rel="stylesheet" href="/assets/style-compat.css" />
   {{ "<![endif]-->" | safeHTML }}
   {{ "<!--[if gt IE 8]><!-->" | safeHTML }}
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}assets/style.css" />
+  <link rel="stylesheet" href="/assets/style.css" />
   {{ "<!--<![endif]-->" | safeHTML }}
 </head>
 <body>
